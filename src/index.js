@@ -1,13 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import App2 from './App2';
+import Header from './Header';
+import Cards from './Cards';
+import data from "./data";
+import './style.css';
+
+const dataElements = data.map(item => {
+    return (
+      <Cards
+        id={item.id}
+        item={item}
+      />
+    )
+})
 
 ReactDOM.render(
   <React.StrictMode>
-    <App/>
-    <App2/>
+    <Header/>
+    <main className="main">
+      {dataElements}
+    </main>
   </React.StrictMode>,
   document.getElementById('root')
 );
